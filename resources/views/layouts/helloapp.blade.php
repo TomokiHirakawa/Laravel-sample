@@ -12,6 +12,7 @@
         <li>@show</li>
     </ul>
     <hr size="1">
+    @yield('new')
     <div class="content">
     @yield('content')
     </div>

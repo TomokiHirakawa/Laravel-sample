@@ -1,27 +1,28 @@
 @extends('layouts.helloapp')
 
-@section('title', 'add')
+@section('title', 'Delete')
 
 @section('menubar')
     @parent
-    新規作成ページ
+    削除ページ
 @endsection
 
 @section('content')
     <table>
-        <form action="/hello/add" method="post">
+        <form action="/hello/del" method="post">
             {{ csrf_field() }}
+            <input type="hidden" name="id" value="{{$form->id}}">
             <tr>
                 <th>name: </th>
-                <td><input type="text" name="name"></td>
+                <td><input type="text" name="name" value="{{$form->name}}"></td>
             </tr>
             <tr>
                 <th>mail: </th>
-                <td><input type="text" name="mail"></td>
+                <td><input type="text" name="mail" value="{{$form->mail}}"></td>
             </tr>
             <tr>
                 <th>age: </th>
-                <td><input type="text" name="age"></td>
+                <td><input type="text" name="age" value="{{$form->age}}"></td>
             </tr>
             <tr>
                 <th></th>
