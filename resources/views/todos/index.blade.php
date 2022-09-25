@@ -18,7 +18,7 @@
         <a href="/regster">登録</a>)</p>
     @endif
     <h1>未完了</h1>
-    @foreach ($items as $item)
+    @foreach ($todos as $item)
         @if ($item->check == 0)
             {{$item->getData()}}
             <form action="todos/{{ $item->id }}/check" method="post">
@@ -30,7 +30,7 @@
         @endif
     @endforeach
     <h1>完了</h1>
-    @foreach ($items as $item)
+    @foreach ($todos as $item)
         @if ($item->check == 1)
             {{$item->getData()}}
             <form action="todos/{{ $item->id }}/check" method="post">

@@ -90,22 +90,19 @@ class TodosController extends Controller
         //     ->update($param);
         $this->validate($request, Todo::$rules);
         $todo = Todo::find($id);
+        // ↓　onlyで項目を取得する
         $form = $request->all();
         unset($form['_token']);
         $todo->fill($form)->save();
         return redirect('/todos');
     }
 
-    // public function del(Request $request)
-    // {
-    //     $item = DB::table('people')->where('id', $request->id)->first();
-    //     return view('hello.del', ['form' => $item]);
-    // }
+    public function destroy($id)
+    {
+        Todo::find($id)->delete();
+        return redirect('/todos');
 
-    // public function remove(Request $request)
-    // {
-    //     DB::table('people')->where('id', $request->id)->delete();
-    //     return redirect('/hello');
+    }
 
     public function getAuth(Request $request)
     {
